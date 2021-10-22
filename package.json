@@ -1,0 +1,29 @@
+{
+  "name": "employee-profile-generator",
+  "version": "1.0.0",
+  "description": "Employee Contact Card Generator",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Pilot67/Employee-Profile-Generator.git"
+  },
+  "author": "Stuart Simmons",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Pilot67/Employee-Profile-Generator/issues"
+  },
+  "homepage": "https://github.com/Pilot67/Employee-Profile-Generator#readme",
+  "dependencies": {
+    "chalk": "^4.1.2",
+    "fs": "^0.0.1-security",
+    "inquirer": "^8.2.0",
+    "zest": "^0.1.3"
+  }
+}
