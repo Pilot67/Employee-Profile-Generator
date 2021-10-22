@@ -1,0 +1,23 @@
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    display: flex;
+    
+}
+
+.cardContainer {
+    display: flex;
+    flex-direction: column;
+    justify-items: flex-start;
+    align-items: center;
+    padding: 20px;
+    background-color: blue;
+}
+.cardHeading {
+    background-color: aqua;
+}
