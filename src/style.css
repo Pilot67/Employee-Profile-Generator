@@ -1,11 +1,26 @@
-
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+:root {
+    --heading:#094a57b2;
+    --results:#84c4c9c0;
+    --pageBackground:#e1ddcb;
+    --cardBackground:#eeecec;
 }
+html {
+    font-size: 62.5%;
+    /* box-sizing: border-box; */
+    /* margin: 0; */
+    /* padding: 0; */
+    /* min-height: 100%; */
+    /* font-size: 100%; */
+}
+
 body {
-    width: 100vw;
+    /* Set body font and text size */
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.75rem;
+    font-weight: 400;
+    line-height: 1.5;
+    background-color: var(--pageBackground);
+
 }
 
 .text-center {
@@ -13,14 +28,14 @@ body {
 }
 .container {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: flex-start;
 }
 .cardBody {
     background-color:blueviolet;
     padding: 10px;
     margin: 10px;
-    min-width: 400px;
+    /* width: 300px; */
     box-shadow: 5px 5px 10px 5px darkslategray;
 }
 
@@ -32,10 +47,32 @@ body {
     padding: 20px;
     background-color: blue;
 }
+h3 {
+    font-weight:700;
+    font-size: 2rem;
+}
 .cardHeading {
     background-color: aqua;
+    width: 100%;
+    /* min-height: 150px; */
+    flex: 1,1,100%;
+}
+.cardMiddle {
+    width: 100%;
+    min-height: 200px;
+    background-color: var(--cardBackground);
 }
 
-@media screen {
-    
+
+/* Change the navigattion menu bar for tablet screens */
+@media screen and (min-width: 768px) {
+    .container {
+        flex-direction : row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .cardBody {
+        flex: 1,0;
+        min-width: 400px;
+    }
 }
