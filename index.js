@@ -3,9 +3,11 @@ const fs = require('fs');
 const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
 const Manager = require('./lib/Manager');
+const genHTML = require('./src/genHTML')
 const companyEmployee = [];
 
 let role = "manager"
+
 const rolePrompt = [
     {
         type: "input",
@@ -102,7 +104,37 @@ const promptEmployee = () => {
 
 
 
+function tempArr() {
+    let manager = new Manager("Stuart Simmons","1","stuart@simmons1.net","(03)9888-9865)")
+    companyEmployee.push(manager);
+    let engineer = new Engineer("John","56","John@gmail.com","Pilot67")
+    companyEmployee.push(engineer);
+    let intern = new Intern("Bob","356","stuart@maonash.edu.au","Monash")
+    companyEmployee.push(intern);
+
+    console.log(companyEmployee);
+}
+
+
+function gatherHTML (){
+    let data = genHTML.htmlHeader("My Company - Stuarts");
+    //companyEmployee.forEach(element => console.log(element.getRole()));
+    companyEmployee.forEach(function (element){
+        //console.log(element.getRole());
+        if (element.getRole() === "Manager"){
+            data += genHTML.htmlManager(element.getName(),element.getId(),element.getOfficeNumber())
+        } else if (element.getRole() === "Engineer"){        
+            data += genHTML.htmlEngineer(element.getName(),element.getId(),element.getGithub())
+        }
+
+    });
+    console.log(data)
+}
+
+
 //Init
 (() => {
-    promptEmployee()
+    //promptEmployee()
+    tempArr();
+    gatherHTML();
 })();
