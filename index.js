@@ -3,7 +3,7 @@ const fs = require('fs');
 const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
 const Manager = require('./lib/Manager');
-const genHTML = require('./src/genHTML')
+const genHtml = require('./src/genHtml')
 const companyEmployee = [];
 
 let role = "manager"
@@ -120,20 +120,19 @@ function tempArr() {
 
 
 function gatherHTML (){
-    let data = genHTML.htmlHeader("My Company - Stuarts");
+    let data = genHtml.htmlHeader("My Company - Stuarts");
     //companyEmployee.forEach(element => console.log(element.getRole()));
     companyEmployee.forEach(function (element){
         //console.log(element.getRole());
         if (element.getRole() === "Manager"){
-            data += genHTML.htmlManager(element.getName(),element.getId(),element.getOfficeNumber())
+            data += genHtml.htmlManager(element.getName(),element.getId(),element.getEmail(),element.getOfficeNumber())
         } else if (element.getRole() === "Engineer"){        
-            data += genHTML.htmlEngineer(element.getName(),element.getId(),element.getGithub())
+            data += genHtml.htmlEngineer(element.getName(),element.getId(),element.getEmail(),element.getGithub())
         }else {
-            data += genHTML.htmlIntern(element.getName(),element.getId(),element.getSchool())
+            data += genHtml.htmlIntern(element.getName(),element.getId(),element.getEmail(),element.getSchool())
         }
     });
-    data += genHTML.htmlFooter()
-    //console.log(data)
+    data += genHtml.htmlFooter()
     saveHtml(data);
 }
 

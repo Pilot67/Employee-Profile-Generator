@@ -20,7 +20,7 @@ function htmlHeader(companyName) {
             <section class = "container">`;
 }
 
-function htmlManager(name,id,officeNumber){
+function htmlManager(name,id,email, officeNumber){
     return `
                 <div class = "cardBody">
                     <div class = "cardContainer">
@@ -30,6 +30,7 @@ function htmlManager(name,id,officeNumber){
                         </div>
                         <div class = "cardMiddle">
                             ID: ${id}<br>
+                            Email: <span><a href="mailto:${email}">${email}</a></span><br>
                             Office Phone: ${officeNumber}
                         </div>
                         <div class = "cardFooter">
@@ -38,7 +39,7 @@ function htmlManager(name,id,officeNumber){
                     </div>
                 </div>`
 }
-function htmlEngineer(name,id,github){
+function htmlEngineer(name,id,email,github){
     return `
                 <div class = "cardBody">
                     <div class = "cardContainer">
@@ -48,7 +49,8 @@ function htmlEngineer(name,id,github){
                         </div>
                         <div class = "cardMiddle">
                             ID: ${id}<br>
-                            Github: ${github}
+                            Email: <span><a href="mailto:${email}">${email}</a></span><br>
+                            Github: <span><a href="https://github.com/${github}" target="_blank" rel="noopener">${github}</a></span>
                         </div>
                         <div class = "cardFooter">
                             <h3>Foot Notes</h3>
@@ -56,7 +58,7 @@ function htmlEngineer(name,id,github){
                     </div>
                 </div>`
 }
-function htmlIntern(name,id,school){
+function htmlIntern(name,id,email,school){
     return `
                 <div class = "cardBody">
                     <div class = "cardContainer">
@@ -66,6 +68,7 @@ function htmlIntern(name,id,school){
                         </div>
                         <div class = "cardMiddle">
                             ID: ${id}<br>
+                            Email: <span><a href="mailto:${email}">${email}</a></span><br>
                             School: ${school}
                         </div>
                         <div class = "cardFooter">
