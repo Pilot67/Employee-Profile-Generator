@@ -6,64 +6,27 @@ const Manager = require('./lib/Manager');
 const genHtml = require('./src/genHtml')
 const companyEmployee = [];
 
-let role = "manager"
+//let role = "manager"
 
-const rolePrompt = [
-    {
-        type: "input",
-        name: "name",
-        message: `Please enter the ${role}'s name -`,
-    },
-    {
-        type: "input",
-        name: "id",
-        message: `Please enter the ${role}'s employee's ID -`,
-    },
-    {
-        type: "input",
-        name: "email",
-        message: `Please enter the ${role}'s email address -`,
-        default: `stuart@simmons1.net`,
-        validate: (email) => {
-            valid = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email);
-            if (valid) {
-              return true;
-            } else {
-              console.log(".  Please enter a valid email");
-              return false;
-            }
-          },
-    },  
-    {
-        type: "input",
-        name: "officeNumber",
-        message: `Please enter the office phone number`,
-    },
-];
-
-
-const promptEmployee = () => {
+const promptEmployee = (role) => {
+    const rolePrompt = promptQuestions(role);
+    console.log("This is a  ",role);
     return inquirer.prompt(rolePrompt)
     .then(({name, id, email, ...rest}) => {
         switch (role) {
-            case "manager":
+            case "Manager":
                 let manager = new Manager(name,id,email,rest.officeNumber)
                 companyEmployee.push(manager);
                 break;
-            case "engineer":
+            case "Engineer":
                 let engineer = new Engineer(name,id,email,rest.github)
                 companyEmployee.push(engineer);
                 break;
-            case "intern":
+            case "Intern":
                 let intern = new Intern(name,id,email,rest.school)
                 companyEmployee.push(intern);
         }
         
-        console.log(companyEmployee)
-        companyEmployee.forEach(element  => {
-            console.log(element.getRole(), " - This Role")
-        });
-
     })
     .then(() => {
         // Add New employee
@@ -77,24 +40,11 @@ const promptEmployee = () => {
             ])
             .then(({addRole}) => {
                 if (addRole === "Engineer") {
-                    role = "engineer";
-                    rolePrompt[0].message = `Please enter the ${role}'s name -`,
-                    rolePrompt[1].message = `Please enter the ${role}'s employee's ID -`,
-                    rolePrompt[2].message =  `Please enter the ${role}'s email address -`,
-                    rolePrompt[3].name = "github"
-                    rolePrompt[3].message = "Please enter the engineers's github profile name -"
-                    promptEmployee()
+                    promptEmployee("Engineer")
                 } else if (addRole === "Intern") {
-                    role = "intern";
-                    rolePrompt[0].message = `Please enter the ${role}'s name -`,
-                    rolePrompt[1].message = `Please enter the ${role}'s employee's ID -`,
-                    rolePrompt[2].message =  `Please enter the ${role}'s email address -`,
-                    rolePrompt[3].name = "school"
-                    rolePrompt[3].message = "Please enter the school's name -"
-                    promptEmployee()
+                    promptEmployee("Intern")
                 } else {
-                    // End of inputs, call HTML build
-                    throw new Error ("Die")
+                    gatherHtml()
                 }
             })
 
@@ -119,9 +69,8 @@ function tempArr() {
 }
 
 
-function gatherHTML (){
+function gatherHtml (){
     let data = genHtml.htmlHeader("My Company - Stuarts");
-    //companyEmployee.forEach(element => console.log(element.getRole()));
     companyEmployee.forEach(function (element){
         //console.log(element.getRole());
         if (element.getRole() === "Manager"){
@@ -143,14 +92,66 @@ function saveHtml (data){
     fs.copyFile('./src/style.css', './dist/style.css', (error) =>
     error ? console.error(error) : console.log('style.css written sucessfully')
 );
-
-
-
+    fs.copyFile('./src/reset.css', './dist/reset.css', (error) =>
+    error ? console.error(error) : console.log('reset.css written sucessfully')
+);
 }
+
+function promptQuestions(role) {
+    const rolePrompt = [
+        {
+            type: "input",
+            name: "name",
+            message: `Please enter the ${role}'s name -`,
+        },
+        {
+            type: "input",
+            name: "id",
+            message: `Please enter the ${role}'s employee's ID -`,
+        },
+        {
+            type: "input",
+            name: "email",
+            message: `Please enter the ${role}'s email address -`,
+            default: `stuart@simmons1.net`,
+            validate: (email) => {
+                valid = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email);
+                if (valid) {
+                  return true;
+                } else {
+                  console.log(".  Please enter a valid email");
+                  return false;
+                }
+              },
+        },  
+    ];
+    if (role === "Manager") {
+        const tempPrompt = {
+            type: "input",
+            name: "officeNumber",
+            message: `Please enter the office phone number`,
+        }
+        rolePrompt.push(tempPrompt);
+    }else if (role === "Engineer") {
+        const tempPrompt = {
+            type: "input",
+            name: "github", 
+            message: "Please enter the engineers's github profile name -",
+        }
+        rolePrompt.push(tempPrompt);
+    }else if(role === "Intern") {
+        const tempPrompt = {
+            type: "input",
+            name: "school", 
+            message: "Please enter the school's name -",
+        }
+        rolePrompt.push(tempPrompt);  
+    }
+    return rolePrompt;
+}
+
 
 //Init
 (() => {
-    //promptEmployee()
-    tempArr();
-    gatherHTML();
+    promptEmployee("Manager")
 })();
