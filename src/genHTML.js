@@ -1,6 +1,6 @@
 function htmlHeader(companyName) {
     return `<!DOCTYPE html>
-    <html lang="en">
+<html lang="en">
     <head>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -26,7 +26,7 @@ function htmlManager(name,id,officeNumber){
                     <div class = "cardContainer">
                         <div class = "cardHeading text-center">
                             <h3>${name}</h3>
-                            <h3 class= "headingText"><span class = "fa-solid fa-graduation-cap"></span>  Manager</h3>
+                            <h3 class= "headingText"><span class = "fas fa-user-tie"></span>  Manager</h3>
                         </div>
                         <div class = "cardMiddle">
                             ID: ${id}<br>
@@ -44,7 +44,7 @@ function htmlEngineer(name,id,github){
                     <div class = "cardContainer">
                         <div class = "cardHeading text-center">
                             <h3>${name}</h3>
-                            <h3 class= "headingText"><span class = "fa-solid fa-graduation-cap"></span>  Engineer</h3>
+                            <h3 class= "headingText"><span class = "fas fa-glasses"></span>  Engineer</h3>
                         </div>
                         <div class = "cardMiddle">
                             ID: ${id}<br>
@@ -56,10 +56,39 @@ function htmlEngineer(name,id,github){
                     </div>
                 </div>`
 }
+function htmlIntern(name,id,school){
+    return `
+                <div class = "cardBody">
+                    <div class = "cardContainer">
+                        <div class = "cardHeading text-center">
+                            <h3>${name}</h3>
+                            <h3 class= "headingText"><span class = "fas fa-school"></span>  Intern</h3>
+                        </div>
+                        <div class = "cardMiddle">
+                            ID: ${id}<br>
+                            School: ${school}
+                        </div>
+                        <div class = "cardFooter">
+                            <h3>Foot Notes</h3>
+                        </div>
+                    </div>
+                </div>`
+}
+function htmlFooter(){
+    return `        
+            </section>
+        </main>
+    </body>
+</html>
+    `
+}
+
 
 module.exports = {
     htmlHeader,
     htmlManager,
     htmlEngineer,
-};
+    htmlIntern,
+    htmlFooter,
+}
     

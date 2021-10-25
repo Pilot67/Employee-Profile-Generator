@@ -109,9 +109,12 @@ function tempArr() {
     companyEmployee.push(manager);
     let engineer = new Engineer("John","56","John@gmail.com","Pilot67")
     companyEmployee.push(engineer);
+    engineer = new Engineer("Nick","121","nick@gmail.com","Nick")
+    companyEmployee.push(engineer);
     let intern = new Intern("Bob","356","stuart@maonash.edu.au","Monash")
     companyEmployee.push(intern);
-
+    intern = new Intern("Carrie","888","carrie@swinburne.edu.au","Swinburne")
+    companyEmployee.push(intern);
     console.log(companyEmployee);
 }
 
@@ -125,12 +128,26 @@ function gatherHTML (){
             data += genHTML.htmlManager(element.getName(),element.getId(),element.getOfficeNumber())
         } else if (element.getRole() === "Engineer"){        
             data += genHTML.htmlEngineer(element.getName(),element.getId(),element.getGithub())
+        }else {
+            data += genHTML.htmlIntern(element.getName(),element.getId(),element.getSchool())
         }
-
     });
-    console.log(data)
+    data += genHTML.htmlFooter()
+    //console.log(data)
+    saveHtml(data);
 }
 
+function saveHtml (data){
+    fs.writeFile('./dist/index.html', data, (error) =>
+    error ? console.error(error) : console.log('index.html written sucessfully')
+);
+    fs.copyFile('./src/style.css', './dist/style.css', (error) =>
+    error ? console.error(error) : console.log('style.css written sucessfully')
+);
+
+
+
+}
 
 //Init
 (() => {

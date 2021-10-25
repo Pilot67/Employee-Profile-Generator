@@ -8,7 +8,7 @@
     "test": "tests"
   },
   "scripts": {
-    "test": "test"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -20,10 +20,12 @@
     "url": "https://github.com/Pilot67/Employee-Profile-Generator/issues"
   },
   "homepage": "https://github.com/Pilot67/Employee-Profile-Generator#readme",
+  "devDependencies": {
+    "jest": "^24.9.0"
+  },
   "dependencies": {
     "chalk": "^4.1.2",
     "fs": "^0.0.1-security",
-    "inquirer": "^8.2.0",
-    "zest": "^0.1.3"
+    "inquirer": "^8.2.0"
   }
 }
