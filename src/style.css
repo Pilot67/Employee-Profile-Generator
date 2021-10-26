@@ -1,0 +1,105 @@
+:root {
+    --heading:#0c6d80;
+    --results:#84c4c9c0;
+    --pageBackground:#e1ddcb;
+    --cardBackground:#eeecec;
+}
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.75rem;
+    font-weight: 400;
+    line-height: 1.5;
+    background-color: var(--pageBackground);
+
+}
+
+header {
+    background-color:var(--heading);
+    color: white;
+    padding: 1.5rem;
+}
+
+header h1 {
+    font-size: 6rem;
+    font-weight: 700; 
+    line-height: 2;
+    color:white ;   
+}
+
+
+.text-center {
+    text-align: center;
+}
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+    margin-top: 1rem;
+}
+.cardBody {
+    background-color:var(--cardBackground);
+    padding: 10px;
+    margin: 10px;
+    border-radius: 12px;
+    box-shadow: 5px 5px 10px 5px darkslategray;
+}
+
+.cardContainer {
+    display: flex;
+    flex-direction: column;
+    justify-items: flex-start;
+    align-items: stretch;
+    padding: 0px;
+    background-color: var(--cardBackground);
+    border: 1px solid darkslategray;
+    border-radius: 10px;
+    height: 100%;
+}
+h3, h4 {
+    font-weight:700;
+}
+h3 {
+        font-size: 3.5rem;
+}
+h4 {
+    font-size: 3rem;
+}
+
+
+.cardHeading {
+    /* background-color: aqua; */
+    background-color:var(--heading);
+    color: white;
+    padding: 1.5rem;
+    width: 100%;
+    border-radius: 8px 8px 0 0;
+    /* min-height: 150px; */
+}
+.cardMiddle {
+    flex: 1;
+    width: 100%;
+    min-height: 175px;
+    padding:1rem;
+    line-height: 2.5;
+    background-color: var(--cardBackground);
+    border-radius: 0 0 10px 10px;
+}
+/* Change the navigattion menu bar for tablet screens */
+@media screen and (min-width: 768px) {
+    .container {
+        flex-direction : row;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-top: 4rem;
+
+    }
+    .cardBody {
+        flex: 1,0;
+        min-width: 400px;
+    }
+}
