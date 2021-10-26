@@ -5,8 +5,7 @@
 <br>
 
 # EMPLOYEE PROFILE GENERATOR  
-<br>
-
+  
 ## Table of Contents
   
   * [Description](#description)
@@ -18,8 +17,6 @@
   * [Links](#links)
   * [Questions](#questions)
   
-<br>
-
 ## Description  
 This software generates a basic html file displaying contact cards for emplyees.  The data is input from a terminal window and could be easliy expanded to take additional information.
 <br>
@@ -69,7 +66,7 @@ When contributing to this repository, please first discuss the change you wish t
 <p align="right">(<a href="#top">back to top</a>)</p>
   
 ## Tests
-The test files are located in the /_tests_/ folder:  
+The test files are located in the /**\_tests\_**/ folder:  
  * Employee.test.js  
  * Engineer.test.js  
  * Intern.test.js  
