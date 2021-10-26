@@ -12,7 +12,7 @@ describe ("Employee", () => {
         })
 
         it ("should return a new object containing a name and id",() =>{
-            expect(obj.employeeName).toEqual(name);
+            expect(obj.name).toEqual(name);
             expect(obj.id).toEqual(id);
         });
         it ("should return a role of Employee",() =>{
