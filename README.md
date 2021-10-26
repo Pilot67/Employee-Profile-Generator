@@ -18,18 +18,18 @@
   * [Questions](#questions)
   
 ## Description  
-This software generates a basic html file displaying contact cards for emplyees.  The data is input from a terminal window and could be easliy expanded to take additional information.
-<br>
-<p align="right">(<a href="#top">back to top</a>)</p>
+This software generates a basic html file displaying contact cards for emplyees.  The data is input from a terminal window and could be easliy expanded to take additional information.  
+![sampleScreenshot](https://user-images.githubusercontent.com/86697483/138974831-5c769ac4-5615-464a-a049-5987c7eaf339.png)  
   
+<p align="right">(<a href="#top">back to top</a>)</p>
   
 ## Installation  
 This software requires the following:  
 Requirements:  
  * node  
  * npm  
- * npm Inquirer
- * npm Zest  
+ * npm inquirer
+ * npm zest  
  * npm fs (file system)  
 
 To install the above run 'npm install' from the terminal command line.
@@ -39,16 +39,18 @@ To install the above run 'npm install' from the terminal command line.
   
 ## Usage
 To sucessfully initiate the software, from the terminal window enter 'node index.js'  
-You will be presented with a series of prompts initially for the Manager position and then a meny allowing you to select an Engineer, Intern or end inputs.  
+You will be presented with a series of prompts initially for the Manager position  
+![Input 1 screenshot](https://user-images.githubusercontent.com/86697483/138974458-b36cd1b3-da2a-4508-b719-e95c2ab408b5.png)  
+  
+Followed by a list menu allowing you to select an Engineer, Intern or end inputs.  
+![Input 2 screenshot](https://user-images.githubusercontent.com/86697483/138974521-bcf847c0-c44f-4a5d-9aba-5883d2c12923.png)  
+  
 Once all of the data has been entered and you have selected 'I dont need to add any more' the html and css files will be written to the /dist/ folder.  
 The files are:  
- * index.html  
- * style.css  
- * reset.css  
-
-<br>
-<p align="right">(<a href="#top">back to top</a>)</p>
+![folderScreenshot](https://user-images.githubusercontent.com/86697483/138974578-62c33782-159a-4990-ae34-c13cf442a8cf.png)  
   
+<p align="right">(<a href="#top">back to top</a>)</p>
+
 ## Licence
 Copyright 2021 Stuart Simmons  
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files  
@@ -76,11 +78,11 @@ Tests are run by entering the command 'npm run test' in the terminal window.
 Test Suites:  4 total  
 Tests:        15 passed  
 ![Tests-Screenshot](https://user-images.githubusercontent.com/86697483/138972202-ee73674c-06b2-415e-8480-6030e634f2ef.png)  
-<br>
+  
 <p align="right">(<a href="#top">back to top</a>)</p>
   
 ## Links
-Published Link: https://pilot67.github.io/<br>
+Published Link: Not available at this time  
 <p align="right">(<a href="#top">back to top</a>)</p>
   
 ## Questions
