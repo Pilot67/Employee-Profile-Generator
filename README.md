@@ -78,7 +78,7 @@ The test files are located in the /_tests_/ folder:
 Tests are run by entering the command 'npm run test' in the terminal window.  
 Test Suites:  4 total  
 Tests:        15 passed  
-  
+![Tests-Screenshot](https://user-images.githubusercontent.com/86697483/138972202-ee73674c-06b2-415e-8480-6030e634f2ef.png)  
 <br>
 <p align="right">(<a href="#top">back to top</a>)</p>
   
