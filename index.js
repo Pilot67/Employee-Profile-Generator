@@ -6,11 +6,10 @@ const Manager = require('./lib/Manager');
 const genHtml = require('./src/genHtml')
 const companyEmployee = [];
 
-//let role = "manager"
 
 const promptEmployee = (role) => {
     const rolePrompt = promptQuestions(role);
-    console.log("This is a  ",role);
+    console.log("You are entering data for a ",role);
     return inquirer.prompt(rolePrompt)
     .then(({name, id, email, ...rest}) => {
         switch (role) {
@@ -52,27 +51,9 @@ const promptEmployee = (role) => {
     .catch((err) => console.log("This error is ", err));
 }
 
-
-
-function tempArr() {
-    let manager = new Manager("Stuart Simmons","1","stuart@simmons1.net","(03)9888-9865)")
-    companyEmployee.push(manager);
-    let engineer = new Engineer("John","56","John@gmail.com","Pilot67")
-    companyEmployee.push(engineer);
-    engineer = new Engineer("Nick","121","nick@gmail.com","Nick")
-    companyEmployee.push(engineer);
-    let intern = new Intern("Bob","356","stuart@maonash.edu.au","Monash")
-    companyEmployee.push(intern);
-    intern = new Intern("Carrie","888","carrie@swinburne.edu.au","Swinburne")
-    companyEmployee.push(intern);
-    console.log(companyEmployee);
-}
-
-
 function gatherHtml (){
-    let data = genHtml.htmlHeader("My Company - Stuarts");
+    let data = genHtml.htmlHeader("Best Tech Engineering");
     companyEmployee.forEach(function (element){
-        //console.log(element.getRole());
         if (element.getRole() === "Manager"){
             data += genHtml.htmlManager(element.getName(),element.getId(),element.getEmail(),element.getOfficeNumber())
         } else if (element.getRole() === "Engineer"){        
@@ -125,6 +106,7 @@ function promptQuestions(role) {
               },
         },  
     ];
+    //Check the type of role and modify the final question to suit
     if (role === "Manager") {
         const tempPrompt = {
             type: "input",
