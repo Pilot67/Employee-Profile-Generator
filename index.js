@@ -10,8 +10,10 @@ const companyEmployee = [];
 const promptEmployee = (role) => {
     const rolePrompt = promptQuestions(role);
     console.log("You are entering data for a ",role);
+    //Prompt the user using inquirer. The prompts come from 'rolePrompt array'
     return inquirer.prompt(rolePrompt)
     .then(({name, id, email, ...rest}) => {
+        //check which role and add to the array companyEmployee
         switch (role) {
             case "Manager":
                 let manager = new Manager(name,id,email,rest.officeNumber)
@@ -28,7 +30,7 @@ const promptEmployee = (role) => {
         
     })
     .then(() => {
-        // Add New employee
+        // Add New employee - list menu
             return inquirer.prompt([
                 {
                     type: "list",
@@ -39,10 +41,13 @@ const promptEmployee = (role) => {
             ])
             .then(({addRole}) => {
                 if (addRole === "Engineer") {
+                    //if engineer was selected, return to promptEmployee
                     promptEmployee("Engineer")
                 } else if (addRole === "Intern") {
+                    //if Intern was selected, return to promptEmployee
                     promptEmployee("Intern")
                 } else {
+                    //generate the html file
                     gatherHtml()
                 }
             })
@@ -67,18 +72,22 @@ function gatherHtml (){
 }
 
 function saveHtml (data){
+    //save index.html file
     fs.writeFile('./dist/index.html', data, (error) =>
     error ? console.error(error) : console.log('index.html written sucessfully')
-);
+    );
+    //make a copy of style.css
     fs.copyFile('./src/style.css', './dist/style.css', (error) =>
     error ? console.error(error) : console.log('style.css written sucessfully')
-);
+    );
+    //make a copy of reset.css
     fs.copyFile('./src/reset.css', './dist/reset.css', (error) =>
     error ? console.error(error) : console.log('reset.css written sucessfully')
-);
+    );
 }
 
 function promptQuestions(role) {
+    //Generate the rolePrompt array with questions depending on the role.
     const rolePrompt = [
         {
             type: "input",
