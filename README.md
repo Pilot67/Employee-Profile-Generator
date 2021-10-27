@@ -85,6 +85,7 @@ Tests:        15 passed
 Published Link: Not available at this time  
 Demonstration Video: [Click Here](https://drive.google.com/file/d/1LIftcaBqfWIF5Jp4INgK6CPPHeXSPWFm/view?usp=sharing)  
 Github Repository: https://github.com/Pilot67/Employee-Profile-Generator  
+Sample index.html file: https://github.com/Pilot67/Employee-Profile-Generator/blob/main/dist/index.html  
 <p align="right">(<a href="#top">back to top</a>)</p>
   
 ## Questions
